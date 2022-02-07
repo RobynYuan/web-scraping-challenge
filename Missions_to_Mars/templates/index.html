@@ -20,19 +20,15 @@
         <div class="card-body">
           <h5 class="card-title" id="font">Latest Mars News</h5>
           <h6 class="card-subtitle mb-2 " id="font">{{ mars.news_title }}</h6>
-          <p class="card-text">{{ mars.news_paragrap }}</p>
-          <a href={{ mars.news_url }} target="_blank">Check All News</a>
+          <p class="card-text">{{ mars.news_title }}></mars> }}</p>
         </div>
       </div>
-      </div>
-      <div class="row no-gutter img-table">
+    </div>
         <div class="col-md-6" >
           <div class="card">
             <div class="card-body" id="img-table">
               <h5 class="card-title">Featured Mars Image</h5>
-              <p class="card-text" id="dark-font">{{ mars.featured_image_title }}</p>
               <img class="card-img-bottom" src="{{ mars.featured_image_url }}" alt="Featured Mars Image">
-              <a href={{ mars.jpl_url }} target="_blank">Check All Images</a>
             </div>
           </div>
         </div>
@@ -41,13 +37,13 @@
             <div class="card-body" id="img-table">
               <div class="col-md-12">
                 <h5 class="card-title">Current Weather on Mars</h5>
-                <p class="card-text" id="dark-font">{{ mars.weather }}</p>
+                <!-- <p class="card-text" id="dark-font">{{ mars.weather }}</p>
               </div>
             </div>
             <div class="card-body" id="img-table">
               <div class="col-md-12">
                 <div>
-                  <h5 class="card-title">Mars Facts</h5>
+                  <h5 class="card-title">Mars Facts</h5> -->
                   <h3>The following table contains general information about mars</h3>
                   <p class="card-text"id="dark-font" >{{ html_table }}</p>
                 </div>
@@ -65,8 +61,8 @@
         {% for hemisphere in mars.hemispheres_image_url %}
             <div class = "col-md-6">
                 <div class = "thumbnail">
-                    <img src = "{{hemispheres_image_url}}">
-                        <h3>{{hemispheres_image_title}}</h3>
+                    <img src = "{{mars.hemispheres_image_url}}">
+                        <h3>{{mars.hemispheres_image_title}}</h3>
                     </div>
                 </div>
         {% endfor %}
