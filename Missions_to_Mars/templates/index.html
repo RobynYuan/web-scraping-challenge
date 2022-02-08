@@ -20,7 +20,7 @@
         <div class="card-body">
           <h5 class="card-title" id="font">Latest Mars News</h5>
           <h6 class="card-subtitle mb-2 " id="font">{{ mars.news_title }}</h6>
-          <p class="card-text">{{ mars.news_title }}></mars> }}</p>
+          <p>{{mars.news_paragraph }}</p>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
           <div class="card">
             <div class="card-body" id="img-table">
               <h5 class="card-title">Featured Mars Image</h5>
-              <img class="card-img-bottom" src="{{ mars.featured_image_url }}" alt="Featured Mars Image">
+              <img class="card-img-bottom" src="{{mars.featured_image}}" alt="Featured Mars Image">
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@
                 <div>
                   <h5 class="card-title">Mars Facts</h5> -->
                   <h3>The following table contains general information about mars</h3>
-                  <p class="card-text"id="dark-font" >{{ html_table }}</p>
+                  <p class="card-text"id="dark-font" >{{ mars.table }}</p>
                 </div>
               </div>
             </div>
@@ -66,9 +66,16 @@
                     </div>
                 </div>
         {% endfor %}
+        {% for hemisphere in hemispheres_image_title %}
+        <div class = "col-md-6">
+            <div class = "thumbnail">
+                    <h3>{{mars.hemispheres_image_title}}</h3>
+                </div>
             </div>
+        {% endfor %}
+      </div>
     
-    </div>
+   </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

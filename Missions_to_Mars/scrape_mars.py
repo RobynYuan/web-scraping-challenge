@@ -1,6 +1,6 @@
 import pymongo
 from splinter import Browser
-from bs4 import BeautifulSoup as bs
+from bs4 import BeautifulSoup
 import time
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
@@ -94,6 +94,8 @@ def scrape_info():
     browser.quit()
 
     # Return results
-    collection.insert(mars_data)
+    print(mars_data)
+    collection.insert_one(mars_data)
     return mars_data
+
     
