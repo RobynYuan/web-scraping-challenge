@@ -97,5 +97,3 @@ def scrape_info():
     print(mars_data)
     collection.insert_one(mars_data)
     return mars_data
-
-    

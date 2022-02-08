@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mission to Mars</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -15,72 +18,64 @@
     <h1>Mission to Mars</h1>
     <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
   </div>
-    <div class="container-fluid news no-padding" id="scraped-data">
+
+    <div class="container-fluid" id="scraped-data">
       <div class="row no-gutter">
         <div class="card-body">
-          <h5 class="card-title" id="font">Latest Mars News</h5>
+          <h2 class="card-title" id="font">Latest Mars News</h2>
           <h6 class="card-subtitle mb-2 " id="font">{{ mars.news_title }}</h6>
           <p>{{mars.news_paragraph }}</p>
         </div>
       </div>
     </div>
-        <div class="col-md-6" >
-          <div class="card">
-            <div class="card-body" id="img-table">
-              <h5 class="card-title">Featured Mars Image</h5>
-              <img class="card-img-bottom" src="{{mars.featured_image}}" alt="Featured Mars Image">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6" >
-          <div class="card">
-            <div class="card-body" id="img-table">
-              <div class="col-md-12">
-                <h5 class="card-title">Current Weather on Mars</h5>
-                <!-- <p class="card-text" id="dark-font">{{ mars.weather }}</p>
-              </div>
-            </div>
-            <div class="card-body" id="img-table">
-              <div class="col-md-12">
-                <div>
-                  <h5 class="card-title">Mars Facts</h5> -->
-                  <h3>The following table contains general information about mars</h3>
-                  <p class="card-text"id="dark-font" >{{ mars.table }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="row" id="mars-featured-image">
+      <div class="col-md-6">
+        <h2>Featured Mars Image</h2>
+        <figure class="figure">
+        <!-- if images is False/None/non-existent, then default to error message -->
+        <img class="card-img-bottom" src="{{mars.featured_image}}" alt="Featured Mars Image">
+        </figure>
+      </div>
+
+      <div class="col-md-4">
+        <!-- Mars Facts -->
+        <div class="row" id="mars-facts">
+          <h4>Mars Facts</h4>
+          <table class="table table-striped">
+            {{ mars.table | safe }}
+          </table>
         </div>
       </div>
-    </div>
+  </div>
+
+<div>
+  <h2><center>Mars Hemispheres</center></h2>
+  <hr>
+</div>
+ 
+<div class="row">
+  
+  <div class="col-md-2">
+    <img class="card-img-top img-thumbnail" src="{{mars.hemispheres_image_url[0]}}" alt="Card image cap">
+    <h4 class="card-title">{{mars.hemispheres_image_title[0]}}</h4>
   </div>
   
-  <div class ="row" id="mars-hemispheres">
-    <div class = "col-md-12">
-        <h3><center>Mars Hemispheres</center></h3>
-        {% for hemisphere in mars.hemispheres_image_url %}
-            <div class = "col-md-6">
-                <div class = "thumbnail">
-                    <img src = "{{mars.hemispheres_image_url}}">
-                        <h3>{{mars.hemispheres_image_title}}</h3>
-                    </div>
-                </div>
-        {% endfor %}
-        {% for hemisphere in hemispheres_image_title %}
-        <div class = "col-md-6">
-            <div class = "thumbnail">
-                    <h3>{{mars.hemispheres_image_title}}</h3>
-                </div>
-            </div>
-        {% endfor %}
-      </div>
-    
-   </div>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <div class="col-md-2">
+    <img class="card-img-top img-thumbnail" src="{{mars.hemispheres_image_url[1]}}" alt="Card image cap">
+    <h4 class="card-title">{{mars.hemispheres_image_title[1]}}</h4>
+
+  </div>
+  <div class="col-md-2">
+    <img class="card-img-top img-thumbnail" src="{{mars.hemispheres_image_url[2]}}" alt="Card image cap">
+    <h4 class="card-title">{{mars.hemispheres_image_title[2]}}</h4>
+  </div>
+  
+  <div class="col-md-2">
+    <img class="card-img-top img-thumbnail" src="{{mars.hemispheres_image_url[3]}}" alt="Card image cap">
+    <h4 class="card-title">{{mars.hemispheres_image_title[3]}}</h4>
+
+  </div>
+</div>
+
 </body>
 </html>
-
