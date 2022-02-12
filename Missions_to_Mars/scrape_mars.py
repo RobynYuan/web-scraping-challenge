@@ -4,10 +4,7 @@ from bs4 import BeautifulSoup
 import time
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
-conn = 'mongodb://localhost:27017'
-client = pymongo.MongoClient(conn)
-db = client.mars_DB
-collection= db.mars
+
 def scrape_info():
     # Set up Splinter
     executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -94,6 +91,4 @@ def scrape_info():
     browser.quit()
 
     # Return results
-    print(mars_data)
-    collection.insert_one(mars_data)
     return mars_data

@@ -19,7 +19,7 @@
     <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
   </div>
 
-    <div class="container-fluid" id="scraped-data">
+  <div class="container-fluid" id="scraped-data">
       <div class="row no-gutter">
         <div class="card-body">
           <h2 class="card-title" id="font">Latest Mars News</h2>
@@ -27,26 +27,25 @@
           <p>{{mars.news_paragraph }}</p>
         </div>
       </div>
-    </div>
-    <div class="row" id="mars-featured-image">
-      <div class="col-md-6">
-        <h2>Featured Mars Image</h2>
+  </div>
+<div class="row" id="mars-featured-image">
+  <div class="col-md-6">
+      <h2>Featured Mars Image</h2>
         <figure class="figure">
-        <!-- if images is False/None/non-existent, then default to error message -->
-        <img class="card-img-bottom" src="{{mars.featured_image}}" alt="Featured Mars Image">
+          <!-- if images is False/None/non-existent, then default to error message -->
+        <img class="card-img-bottom"  src="{{mars.featured_image}}" alt="Featured Mars Image">
         </figure>
-      </div>
-
-      <div class="col-md-4">
+  </div>
+  <div class="col-md-6">
         <!-- Mars Facts -->
-        <div class="row" id="mars-facts">
-          <h4>Mars Facts</h4>
-          <table class="table table-striped">
-            {{ mars.table | safe }}
-          </table>
-        </div>
+      <div class="row" id="mars-facts">
+      <h4>Mars Facts</h4>
+      <table class="table table-striped">
+      {{ mars.table |safe}}
+      </table>
       </div>
   </div>
+</div>
 
 <div>
   <h2><center>Mars Hemispheres</center></h2>
